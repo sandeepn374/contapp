@@ -47,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        try{
       ;
         setSentenceCount(0);
 
@@ -55,67 +57,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         String user=RegisterActivity.getDefaults("user",getApplicationContext());
 
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                String fname     =  "*********************Test First Name///////";
-                mAuth = FirebaseAuth.getInstance();
-
-                try{
-                    String fnameValue  = URLEncoder.encode(fname, "UTF-8");
-                    HttpClient Client = new DefaultHttpClient();
-
-                    String URL = "http://35.196.205.226/api/userinfo/"+mAuth.getCurrentUser().getEmail();
-                    try
-                    {
-                        String SetServerString = "";
-                        HttpGet httpget = new HttpGet(URL);
-                        ResponseHandler<String> responseHandler = new BasicResponseHandler();
-                        SetServerString = Client.execute(httpget, responseHandler);
-                        final String finalSetServerString = SetServerString;
-                        if(SetServerString.equals("notregistered"))
-                        {
-                            System.out.println("please register");
-                        }
-                        else {
-                            String[] data = SetServerString.split("-");
-                            RegisterActivity.USER_NAME=data[0];
-                            RegisterActivity.setDefaults("user", data[0], getApplicationContext());
-                            RegisterActivity.setDefaults("phone", data[2], getApplicationContext());
-                            RegisterActivity.setDefaults("uuid", data[1], getApplicationContext());
-                            RegisterActivity.setDefaults("email", data[3], getApplicationContext());
-                            RegisterActivity.setDefaults("ownreferalcode", data[4], getApplicationContext());
-                            if(data.length==6)
-                            RegisterActivity.setDefaults("referedby", data[5], getApplicationContext());
-                            Intent i =new Intent(RegisterActivity.this,MainActivity.class);
-                            startActivity(i);
-                        }
-
-                    }
-                    catch(Exception ex)
-                    {
-//                dialog.dismiss();
-
-//                showToast(ex.toString());
-                        Log.e("Error", ex.toString());
-                    }
-                }
-                catch(UnsupportedEncodingException ex)
-                {
-//            dialog.dismiss();
-//            showToast(ex.toString());
-                    Log.e("Error", ex.getMessage().toString());
-                }
-                catch (Exception e) {
-//            dialog.dismiss();
-//            showToast(e.toString());
-                    Log.e("Error", e.getMessage().toString());
-                }
-
-
-            }});
-        //t.start();
         if(user!=null){
 
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -150,58 +91,50 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 protected Void doInBackground(Void... params) {
 
-                    String fname     =  "*********************Test First Name///////";
+                    String fname = "*********************Test First Name///////";
                     mAuth = FirebaseAuth.getInstance();
 
-                    try{
-                        String fnameValue  = URLEncoder.encode(fname, "UTF-8");
+                    try {
+                        String fnameValue = URLEncoder.encode(fname, "UTF-8");
                         HttpClient Client = new DefaultHttpClient();
 
-                        String URL = "http://35.196.205.226/api/userinfo/"+mAuth.getCurrentUser().getEmail();
-                        try
-                        {
+                        String URL = "http://35.196.205.226/api/userinfo/" + mAuth.getCurrentUser().getEmail();
+                        try {
                             String SetServerString = "";
                             HttpGet httpget = new HttpGet(URL);
                             ResponseHandler<String> responseHandler = new BasicResponseHandler();
                             SetServerString = Client.execute(httpget, responseHandler);
                             final String finalSetServerString = SetServerString;
-                            if(SetServerString.equals("notregistered"))
-                            {
+                            if (SetServerString.equals("notregistered")) {
                                 System.out.println("please register");
-                            }
-                            else {
+                            } else {
                                 String[] data = SetServerString.split("-");
-                                RegisterActivity.USER_NAME=data[0];
+                                RegisterActivity.USER_NAME = data[0];
                                 RegisterActivity.setDefaults("user", data[0], getApplicationContext());
                                 RegisterActivity.setDefaults("phone", data[2], getApplicationContext());
                                 RegisterActivity.setDefaults("uuid", data[1], getApplicationContext());
                                 RegisterActivity.setDefaults("email", data[3], getApplicationContext());
                                 RegisterActivity.setDefaults("ownreferalcode", data[4], getApplicationContext());
-                                if(data.length==6)
-                                RegisterActivity.setDefaults("referedby", data[5], getApplicationContext());
+                                if (data.length == 6)
+                                    RegisterActivity.setDefaults("referedby", data[5], getApplicationContext());
                                 else
                                     RegisterActivity.setDefaults("referedby", "no refer used", getApplicationContext());
 
-                                Intent i =new Intent(RegisterActivity.this,MainActivity.class);
+                                Intent i = new Intent(RegisterActivity.this, MainActivity.class);
                                 startActivity(i);
                             }
 
-                        }
-                        catch(Exception ex)
-                        {
+                        } catch (Exception ex) {
 //                dialog.dismiss();
 
 //                showToast(ex.toString());
                             Log.e("Error", ex.toString());
                         }
-                    }
-                    catch(UnsupportedEncodingException ex)
-                    {
+                    } catch (UnsupportedEncodingException ex) {
 //            dialog.dismiss();
 //            showToast(ex.toString());
                         Log.e("Error", ex.getMessage().toString());
-                    }
-                    catch (Exception e) {
+                    } catch (Exception e) {
 //            dialog.dismiss();
 //            showToast(e.toString());
                         Log.e("Error", e.getMessage().toString());
@@ -213,12 +146,19 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             BackgroundTask task = new BackgroundTask(RegisterActivity.this);
-           task.execute();
-
-
+            task.execute();
 
 
             setContentView(R.layout.activity_register);
+        }
+
+
+        }
+        catch(Exception e){
+
+
+            Toast.makeText(RegisterActivity.this, ""+e,
+                    Toast.LENGTH_LONG).show();
 
         }
 
@@ -249,75 +189,6 @@ public class RegisterActivity extends AppCompatActivity {
         return output;
     }
 
-    /*private void makePostRequestOnNewThread() {
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-
-                String fname     =  "*********************Test First Name///////";
-                mAuth = FirebaseAuth.getInstance();
-
-                try{
-                    String fnameValue  = URLEncoder.encode(fname, "UTF-8");
-                    HttpClient Client = new DefaultHttpClient();
-
-                    String URL = "http://35.196.205.226/api/userinfo/"+mAuth.getCurrentUser().getEmail();
-                    try
-                    {
-                        String SetServerString = "";
-                        HttpGet httpget = new HttpGet(URL);
-                        ResponseHandler<String> responseHandler = new BasicResponseHandler();
-                        SetServerString = Client.execute(httpget, responseHandler);
-                        final String finalSetServerString = SetServerString;
-                        if(SetServerString.equals("notregistered"))
-                        {
-                          System.out.println("please register");
-                        }
-                        else {
-                            String[] data = SetServerString.split("-");
-                            RegisterActivity.USER_NAME=data[0];
-                            RegisterActivity.setDefaults("user", data[0], getApplicationContext());
-                            RegisterActivity.setDefaults("phone", data[2], getApplicationContext());
-                            RegisterActivity.setDefaults("uuid", data[1], getApplicationContext());
-                            RegisterActivity.setDefaults("email", data[3], getApplicationContext());
-                            RegisterActivity.setDefaults("ownreferalcode", data[4], getApplicationContext());
-                            RegisterActivity.setDefaults("referedby", data[5], getApplicationContext());
-                            Intent i =new Intent(RegisterActivity.this,MainActivity.class);
-                            startActivity(i);
-                        }
-
-                    }
-                    catch(Exception ex)
-                    {
-//                dialog.dismiss();
-
-//                showToast(ex.toString());
-                        Log.e("Error", ex.toString());
-                    }
-                }
-                catch(UnsupportedEncodingException ex)
-                {
-//            dialog.dismiss();
-//            showToast(ex.toString());
-                    Log.e("Error", ex.getMessage().toString());
-                }
-                catch (Exception e) {
-//            dialog.dismiss();
-//            showToast(e.toString());
-                    Log.e("Error", e.getMessage().toString());
-                }
-
-
-
-
-            }
-        });
-        t.start();
-    }
-*/
-
-    /** Called when the user taps the Send button */
     public void registerUser(View view) {
         if(validateFields()) {
             showErrorToast();
