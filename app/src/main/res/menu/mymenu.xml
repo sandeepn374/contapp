@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/uploadMenu"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/ic_upload_button_enable"
+        />
+
+    <item
+        android:id="@+id/earningsMenu"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/icons8rupee50"
+        />
+</menu>

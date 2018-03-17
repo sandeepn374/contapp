@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    >
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/readableText"
+        android:layout_width="331dp"
+        android:layout_height="378dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:ems="12"
+        android:gravity="center_horizontal"
+        android:hint="@string/label_text"
+        android:inputType="textMultiLine"
+        android:lines="12"
+        android:scrollbars="vertical"
+        android:textColor="#000000"
+        android:textColorHint="@android:color/black"
+        android:textSize="34sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="6dp"
+        android:maxLines = "12"
+        tools:layout_editor_absoluteY="13dp"
+        tools:layout_editor_absoluteX="22dp"
+        app:layout_constraintHorizontal_bias="0.625" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/nextId"
+        android:layout_above="@+id/all"
+        android:layout_marginBottom="5dp"
+        >
+
+        <com.taishi.library.Indicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+
+            android:background="#FFFFFF"
+            app:bar_num="50"
+            app:bar_color="#1DD069"
+            app:step_num="70"
+            app:duration="20000"
+            android:visibility="invisible"
+            />
+
+
+        <Button
+            android:id="@+id/refreshButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:drawableTop="@drawable/ic_refresh_button"
+            />
+
+
+    </RelativeLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/all"
+    android:layout_above="@+id/upload"
+    android:layout_marginBottom="5dp">
+
+
+    <Button
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rec ON"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:drawableTop="@drawable/ic_mic_button_enable"
+      />
+
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rec OFF"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:drawableTop="@drawable/ic_stop_mic_button"
+     />
+
+
+
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:drawableTop="@drawable/ic_play_button_enable"
+        />
+
+
+
+    <Button
+        android:id="@+id/stop_playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:drawableTop="@drawable/ic_stop_button"
+       />
+
+
+</LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:id="@+id/upload"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+       >
+
+
+
+        <!--<Button
+            android:id="@+id/uploadCurrent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Upload"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+
+            />-->
+
+
+      <!--  <Button
+            android:id="@+id/earnings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Earnings"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+
+          />
+
+          -->
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>
+
+
+
+</RelativeLayout>

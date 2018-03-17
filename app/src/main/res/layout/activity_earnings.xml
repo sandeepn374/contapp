@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <TableRow>
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="Total Files"
+            android:layout_weight="1"
+            />
+
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="files"
+            android:layout_weight="1"
+            android:id="@+id/files"
+            android:textStyle="bold"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="Total Earnings"
+            android:layout_weight="1"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="earnings"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:id="@+id/earnings"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="Total Accepted Files"
+            android:layout_weight="1"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="accepted files : "
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:id="@+id/acceptance"
+            />
+
+    </TableRow>
+
+
+    <TableRow>
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="Total Rejected Files"
+            android:layout_weight="1"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="accepted files : "
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:id="@+id/rejected"
+            />
+
+    </TableRow>
+
+
+
+
+    <TableRow>
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="Referral Code (Share app and Earn Money)"
+            android:layout_weight="1"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:id="@+id/referalcodetoshare"
+            android:layout_marginLeft="125dp"
+            android:textIsSelectable="true"
+            />
+
+    </TableRow>
+
+
+    <TableRow>
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="Referral Income"
+            android:layout_weight="1"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:id="@+id/referalicome"
+            android:layout_marginLeft="125dp"
+            android:textIsSelectable="true"
+            />
+
+    </TableRow>
+
+
+</TableLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Voice It</string>
+    <string name="edit_message">Enter a Message</string>
+    <string name="button_send">Send</string>
+    <string name="field_name">Name</string>
+    <string name="field_sex">Sex</string>
+    <string name="field_age">Age</string>
+    <string name="field_native_district">Native District</string>
+    <string name="field_phone_model">Phone Model</string>
+    <string name="field_phone_make">Phone Make</string>
+    <string name="field_radio_male">Male</string>
+    <string name="field_radio_female">Female</string>
+    <string name="button_register">Register</string>
+    <string name="label_text"> Welcome to Voice It Click on Next  </string>
+    <string name="title_activity_earnings">Earnings</string>
+
+</resources>
