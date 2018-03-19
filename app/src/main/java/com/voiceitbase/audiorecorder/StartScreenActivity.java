@@ -190,8 +190,8 @@ public class StartScreenActivity extends AppCompatActivity{
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
 
-                Toast.makeText(StartScreenActivity.this, "Google sign in failed"+e,
-                        Toast.LENGTH_LONG).show();
+               // Toast.makeText(StartScreenActivity.this, "Google sign in failed"+e,
+                 //       Toast.LENGTH_LONG).show();
                 // [START_EXCLUDE]
                // Snackbar.make(findViewById(R.id.main_layout), "Google sign in failed", Snackbar.LENGTH_SHORT).show();
 
