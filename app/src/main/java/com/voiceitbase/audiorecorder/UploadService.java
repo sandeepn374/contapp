@@ -89,6 +89,21 @@ public class UploadService extends IntentService {
                 String phone=RegisterActivity.getDefaults("phone",getApplicationContext());
 
                 String uuid=RegisterActivity.getDefaults("uuid",getApplicationContext());
+
+                String age=RegisterActivity.getDefaults("age",getApplicationContext());
+
+                String sex=RegisterActivity.getDefaults("sex",getApplicationContext());
+                String district=RegisterActivity.getDefaults("district",getApplicationContext());
+
+                if(age==null)
+                    age="";
+                if(sex==null)
+                    sex="";
+                if(district==null)
+                    district="";
+
+
+
                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
                 RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
@@ -100,6 +115,9 @@ public class UploadService extends IntentService {
                         .addFormDataPart("referedby",referedby)
                         .addFormDataPart("ownreferalcode",ownreferalcode)
                         .addFormDataPart("email",auth.getCurrentUser().getEmail())
+                        .addFormDataPart("age",age)
+                        .addFormDataPart("sex",sex)
+                        .addFormDataPart("district",district)
                         .build();
 
                 Request request = new Request.Builder().url("http://35.196.205.226/api/upload")

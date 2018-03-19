@@ -111,7 +111,7 @@
             android:textStyle="bold"
             android:layout_weight="1"
             android:id="@+id/referalcodetoshare"
-            android:layout_marginLeft="125dp"
+
             android:textIsSelectable="true"
             />
 
@@ -136,7 +136,7 @@
             android:textStyle="bold"
             android:layout_weight="1"
             android:id="@+id/referalicome"
-            android:layout_marginLeft="125dp"
+
             android:textIsSelectable="true"
             />
 

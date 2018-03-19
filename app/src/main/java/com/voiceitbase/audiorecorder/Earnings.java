@@ -20,6 +20,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.util.UUID;
 
@@ -51,69 +52,6 @@ public class Earnings extends AppCompatActivity {
             @Override
             public void run() {
 
-
-                /*String fname     =  "*********************Test First Name///////";
-                showToast("Please wait, connecting to server.");
-                try{
-                    String fnameValue  = URLEncoder.encode(fname, "UTF-8");
-                    HttpClient Client = new DefaultHttpClient();
-                    String referid=  RegisterActivity.getDefaults("ownreferalcode",getApplicationContext());
-                    String URL = "http://35.196.205.226/api/userinfo/kshravi86@gmail.com";
-                    try
-                    {
-                        String SetServerString = "";
-                        HttpGet httpget = new HttpGet(URL);
-                        ResponseHandler<String> responseHandler = new BasicResponseHandler();
-                        SetServerString = Client.execute(httpget, responseHandler);
-                        final String finalSetServerString = SetServerString;
-                        if(SetServerString.equals("notregistered"))
-                        {
-                            Intent i =new Intent(Earnings.this,RegisterActivity.class);
-                            startActivity(i);
-                        }
-                        else {
-                            String[] data = SetServerString.split("-");
-                            RegisterActivity.setDefaults("user", data[0], getApplicationContext());
-                            RegisterActivity.setDefaults("phone", data[2], getApplicationContext());
-                            RegisterActivity.setDefaults("uuid", data[1], getApplicationContext());
-                            RegisterActivity.setDefaults("email", data[3], getApplicationContext());
-                            RegisterActivity.setDefaults("ownreferalcode", data[4], getApplicationContext());
-                            Intent i =new Intent(Earnings.this,MainActivity.class);
-                            startActivity(i);
-                        }
-
-                    }
-                    catch(Exception ex)
-                    {
-//                dialog.dismiss();
-
-//                showToast(ex.toString());
-                        Log.e("Error", ex.toString());
-                    }
-                }
-                catch(UnsupportedEncodingException ex)
-                {
-//            dialog.dismiss();
-//            showToast(ex.toString());
-                    Log.e("Error", ex.getMessage().toString());
-                }
-                catch (Exception e) {
-//            dialog.dismiss();
-//            showToast(e.toString());
-                    Log.e("Error", e.getMessage().toString());
-                }
-
-                /*OkHttpClient client = new OkHttpClient();
-
-                Request request = new Request.Builder()
-                        .url("http://35.196.205.226/api/userinfo/kshravi86@gmail.com")
-                        .build();
-                try {
-                    Response response = client.newCall(request).execute();
-                    System.out.println(response);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
                 getEarnings();
                 getrejectedFiles();
                 getReferalIncome();
@@ -124,7 +62,10 @@ public class Earnings extends AppCompatActivity {
                         earnings.setText("Earnings = Rs "+totalAccepted*0.50);
                         reject.setText("Total rejected files = "+totalRejected);
                         accept.setText("Total accepted files = "+totalAccepted);
-                        referincometext.setText("Referral Income Rs = "+referalincome*0.10);
+                        float refericome= (float) (referalincome*0.10);
+                        refericome=round(refericome,2);
+
+                        referincometext.setText("Referral Income Rs = "+refericome);
                         referalcode.setText(RegisterActivity.getDefaults("ownreferalcode",getApplicationContext()));
                         referalcode.setTypeface(null, Typeface.BOLD);
 
@@ -269,6 +210,11 @@ public class Earnings extends AppCompatActivity {
         }
 
 
+    }
+    public static float round(float d, int decimalPlace) {
+        BigDecimal bd = new BigDecimal(Float.toString(d));
+        bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
+        return bd.floatValue();
     }
 
 }

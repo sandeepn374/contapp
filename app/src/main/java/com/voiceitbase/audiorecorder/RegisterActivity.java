@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
     public static String USER_PHONE_MODEL = "";
     private FirebaseAuth mAuth;
 
-    public EditText referal;
+    public EditText referal,age;
     private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -253,10 +253,16 @@ public class RegisterActivity extends AppCompatActivity {
         final String uuid = UUID.randomUUID().toString().replace("-", "");
         RegisterActivity.setDefaults("phone",phoneNumber,getApplicationContext());
         RegisterActivity.setDefaults("uuid",uuid,getApplicationContext());
+        RegisterActivity.setDefaults("sex",USER_SEX,getApplicationContext());
+        RegisterActivity.setDefaults("district",USER_NATIVE_DISTRICT,getApplicationContext());
 
         referal=(EditText)findViewById(R.id.referalcode);
+        age=(EditText)findViewById(R.id.age);
+        String ageString=age.getText().toString();
+
 
         String referedby=referal.getText().toString();
+        RegisterActivity.setDefaults("age",ageString,getApplicationContext());
 
         RegisterActivity.setDefaults("referedby",referedby,getApplicationContext());
 
