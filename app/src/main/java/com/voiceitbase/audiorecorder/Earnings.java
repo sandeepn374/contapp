@@ -32,6 +32,7 @@ public class Earnings extends AppCompatActivity {
 
     TextView files,earnings,accept,reject,referalcode,referincometext;
     int totalAccepted,totalRejected,referalincome;
+    float referprice ,uploadprice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +56,15 @@ public class Earnings extends AppCompatActivity {
                 getEarnings();
                 getrejectedFiles();
                 getReferalIncome();
+                getprice();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         files.setText("Files = "+(totalAccepted+totalRejected));
-                        earnings.setText("Earnings = Rs "+totalAccepted*0.50);
+                        earnings.setText("Earnings = Rs "+totalAccepted*uploadprice);
                         reject.setText("Total rejected files = "+totalRejected);
                         accept.setText("Total accepted files = "+totalAccepted);
-                        float refericome= (float) (referalincome*0.10);
+                        float refericome= (float) (referalincome*referprice);
                         refericome=round(refericome,2);
 
                         referincometext.setText("Referral Income Rs = "+refericome);
@@ -75,6 +77,40 @@ public class Earnings extends AppCompatActivity {
             }
         });
         t.start();
+    }
+
+
+    private void getprice() {
+
+        try {
+
+            HttpClient Client = new DefaultHttpClient();
+
+            String URL = "http://35.196.205.226/api/priceinfo";
+            try {
+                String SetServerString = "";
+                HttpGet httpget = new HttpGet(URL);
+                ResponseHandler<String> responseHandler = new BasicResponseHandler();
+                SetServerString = Client.execute(httpget, responseHandler);
+                final String finalSetServerString = SetServerString;
+
+                    String[] data = SetServerString.split("-");
+                uploadprice=Float.valueOf(data[0]);
+                referprice=Float.valueOf(data[1]);
+
+
+
+            } catch (Exception ex) {
+//                dialog.dismiss();
+
+//                showToast(ex.toString());
+                Log.e("Error", ex.toString());
+            }
+        }  catch (Exception e) {
+//            dialog.dismiss();
+//            showToast(e.toString());
+            Log.e("Error", e.getMessage().toString());
+        }
     }
 
     private void getReferalIncome() {
@@ -119,6 +155,7 @@ public class Earnings extends AppCompatActivity {
 
 
     }
+
 
 
     public void showToast(String message) {
