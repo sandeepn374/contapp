@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
     // handle button activities
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         int id = item.getItemId();
 
         if (id == R.id.uploadMenu) {
@@ -91,6 +92,15 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(getApplicationContext(), Earnings.class);
             startActivity(intent);
+
+        }
+        else if (id == R.id.share) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT,
+                    "Hey check out this app at: and use my referral code - "+RegisterActivity.getDefaults("ownreferalcode",getApplicationContext())+"    "+" https://play.google.com/store/apps/details?id=com.voiceitbase.audiorecorder18&hl=en");
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
 
         }
         return super.onOptionsItemSelected(item);
