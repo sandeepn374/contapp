@@ -75,6 +75,7 @@ public class UploadService extends IntentService {
                 //sentence=sentence.substring(sentence.indexOf("\""));
                 sentence=sentence.replaceAll("\"","");
                 sentence=sentence.replaceAll("\n","");
+                sentence=sentence.trim();
 
 
                 String referedby=RegisterActivity.getDefaults("referedby",getApplicationContext());
@@ -109,7 +110,7 @@ public class UploadService extends IntentService {
                 RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
                         .addFormDataPart("audio_file", image.getName(), RequestBody.create(MEDIA_TYPE_PNG, image))
                         .addFormDataPart("user",user)
-                        .addFormDataPart("textfromphone",sentence)
+                        .addFormDataPart("textfromphone",sentence.substring(0,sentence.length()-3))
                         .addFormDataPart("uuid",uuid)
                         .addFormDataPart("phone",phone)
                         .addFormDataPart("referedby",referedby)
