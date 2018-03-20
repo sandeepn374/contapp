@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -330,7 +331,11 @@ public class FileList extends AppCompatActivity  {
 
         File image=new File(selectedFilePath+filelastname);
 
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build();
 
 
         user=RegisterActivity.getDefaults("user",getApplicationContext());
@@ -342,12 +347,15 @@ public class FileList extends AppCompatActivity  {
         RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
                 .addFormDataPart("audio_file", image.getName(), RequestBody.create(MEDIA_TYPE_PNG, image))
                 .addFormDataPart("user",user)
-                .addFormDataPart("textfromphone",stringfromPhone)
+                .addFormDataPart("textfromphone","aakash")
                 .addFormDataPart("uuid",uuid)
                 .addFormDataPart("phone",phone)
                 .addFormDataPart("referedby",referedby)
                 .addFormDataPart("ownreferalcode",ownreferalcode)
                 .addFormDataPart("email",auth.getCurrentUser().getEmail())
+                .addFormDataPart("age","18")
+                .addFormDataPart("sex","female")
+                .addFormDataPart("district","bangalore")
                 .build();
 
         Request request = new Request.Builder().url("http://35.196.205.226/api/upload")
