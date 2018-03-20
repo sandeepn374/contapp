@@ -121,6 +121,8 @@ public class UploadService extends IntentService {
                         .addFormDataPart("district",district)
                         .build();
 
+
+
                 Request request = new Request.Builder().url("http://35.196.205.226/api/upload")
                         .post(requestBody).build();
 

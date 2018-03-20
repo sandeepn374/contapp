@@ -141,6 +141,44 @@
             />
 
     </TableRow>
+    <TableRow>
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:text="Pricing Policy"
+            android:layout_weight="1"
+            />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Rs 0.5 for every file accepted \n Rs 10 upon completion of 25 sentences by the referral \n Rs 0.1 for every accepted file by the referral there after\n minimum slab for payment is Rs 50"
+            android:textStyle="bold"
+            android:layout_weight="1"
+
+
+            android:textIsSelectable="true"
+            />
+
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="pricing policy is subject to change without any prior notice \n The Machine decision is final with regards to quality of recording"
+            android:textStyle="bold"
+            android:layout_weight="1"
+
+
+            android:textIsSelectable="true"
+            />
+
+    </TableRow>
+
+
 
 
 </TableLayout>

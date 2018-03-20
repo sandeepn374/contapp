@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT,
-                    "Hey check out this app at: and use my referral code - "+RegisterActivity.getDefaults("ownreferalcode",getApplicationContext())+"    "+" https://play.google.com/store/apps/details?id=com.voiceitbase.audiorecorder18&hl=en");
+                    "Record and earn upto Rs 1000 every week \n\n U SPEAK WE PAY as the title suggest is an app where you get paid to speak\n\n"+
+                         "Sounds interesting,doesn't it?\n\n Get Rs 25 for recording as minimum as 50 sentences!\n\nUse my referral code - "  +RegisterActivity.getDefaults("ownreferalcode",getApplicationContext())+"\n and download the app now    "+" https://play.google.com/store/apps/details?id=com.voiceitbase.audiorecorder18&hl=en");
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
 
