@@ -13,7 +13,6 @@
         android:allowBackup="true"
         android:icon="@drawable/icons8micro64"
         android:label="@string/app_name"
-
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -25,19 +24,26 @@
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
         <!-- </intent-filter> -->
         <!-- </activity> -->
-        <activity android:name="com.voiceitbase.audiorecorder.MainActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.voiceitbase.audiorecorder.RegisterActivity"
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegisterActivity"
             android:screenOrientation="portrait">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
 
         </activity>
-        <activity android:name="com.voiceitbase.audiorecorder.FileList"  android:screenOrientation="portrait"></activity>
-        <activity android:name="com.voiceitbase.audiorecorder.storage">
+        <activity
+            android:name=".FileList"
+            android:screenOrientation="portrait" />
+        <activity android:name=".storage">
 
             <!--
             <intent-filter>
@@ -48,67 +54,65 @@
             -->
         </activity>
         <activity
-            android:name="com.voiceitbase.audiorecorder.Earnings"
+            android:name=".Earnings"
             android:label="@string/title_activity_earnings"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"></activity>
-
-
-        <activity android:name="com.voiceitbase.audiorecorder.GoogleSignInActivity"
+            android:screenOrientation="portrait"
+          />
+        <activity
+            android:name=".GoogleSignInActivity"
             android:screenOrientation="portrait">
 
-
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-
-        </activity>
-
-        <activity android:name="com.voiceitbase.audiorecorder.StartScreenActivity"
-            android:screenOrientation="portrait">
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
-
-
-
+            -->
 
         </activity>
-
         <activity
-            android:name="com.voiceitbase.audiorecorder.NotificationActivity"
+            android:name=".StartScreenActivity"
             android:screenOrientation="portrait">
-            <!--<intent-filter>
+          <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NotificationActivity"
+            android:screenOrientation="portrait">
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
 
-
-        <service android:name="com.voiceitbase.audiorecorder.UploadService" >
-        </service>
-
+        <service android:name=".UploadService"></service>
 
         <activity
-            android:name="com.voiceitbase.audiorecorder.FileListNewMulti"
+            android:name=".FileListNewMulti"
             android:screenOrientation="portrait">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
-            android:name="com.voiceitbase.audiorecorder.TestActivity"
+            android:name=".TestActivity"
             android:screenOrientation="portrait">
 
-            <!-- Necessary to the task manager to know who is the parent activity, if you are developing API 16 or higher, you can use:
-                 android:parentActivityName="doc.saulmm.notification.MainActivity"  -->
+            <!--
+                 Necessary to the task manager to know who is the parent activity, if you are developing API 16 or higher, you can use:
+                 android:parentActivityName="doc.saulmm.notification.MainActivity"
+            -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.voiceitbase.audiorecorder.NotificationActivity" />

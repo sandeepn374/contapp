@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
+
     <include
         layout="@layout/app_bar_navigation"
         android:layout_width="match_parent"
@@ -17,41 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="false"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_navigation"
         app:menu="@menu/activity_navigation_drawer" />
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/nav_view"
-
-        >
-
-
-
-
-    <ListView
-        android:id="@+id/simpleListView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:divider="#000"
-        android:dividerHeight="2dp"
-
-        android:layout_marginTop="60dp"
-
-
-        />
-
-    <Button
-        android:id="@+id/uploadButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload"
-        android:onClick="multiUpload"
-        android:layout_alignParentBottom="true"
-     />
-    </RelativeLayout>
 
 </android.support.v4.widget.DrawerLayout>

@@ -64,20 +64,8 @@ dependencies {
     compile 'com.taishi-y:musicindicator:0.1.0'
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
 
 
 apply plugin: 'com.google.gms.google-services'

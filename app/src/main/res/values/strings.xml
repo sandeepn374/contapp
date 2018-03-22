@@ -13,5 +13,11 @@
     <string name="button_register">Register</string>
     <string name="label_text"> Welcome to Voice It Click on Next  </string>
     <string name="title_activity_earnings">Earnings</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>

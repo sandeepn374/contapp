@@ -8,9 +8,16 @@ import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,7 +45,7 @@ import okhttp3.Response;
 import android.content.BroadcastReceiver;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class FileListNewMulti extends AppCompatActivity  {
+public class FileListNewMulti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
 
@@ -100,44 +107,142 @@ public class FileListNewMulti extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
 
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                    .permitAll().build();
-            StrictMode.setThreadPolicy(policy);
+            if (android.os.Build.VERSION.SDK_INT > 9) {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                        .permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+            }
+
+            boolean servicestate = isMyServiceRunning(UploadService.class);
+
+            if (servicestate) {
+                Toast.makeText(FileListNewMulti.this, "File upload is in progress ",
+                        Toast.LENGTH_LONG).show();
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_filelistnewmulti);
+                simpleListView = (ListView) findViewById(R.id.simpleListView);
+                String[] from = {"name", "path"};//string array
+                int[] to = {R.id.textView, R.id.imageView};//int array of views id's
+                ArrayList<HashMap<String, String>> emptyarrayList = new ArrayList<>();
+                simpleAdapter = new SimpleAdapter(this, emptyarrayList, R.layout.list_view_items, from, to);//Create object and set the parameters for simpleAdapter
+                simpleListView.setAdapter(simpleAdapter);
+
+                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                setSupportActionBar(toolbar);
+
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                drawer.addDrawerListener(toggle);
+                toggle.syncState();
+
+                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        int id = menuItem.getItemId();
+
+                        if (id == R.id.earningsnav) {
+                            Intent intent = new Intent(getApplicationContext(), Earnings.class);
+                            startActivity(intent);
+
+
+                        } else if (id == R.id.uploadsnav) {
+
+                            Intent intent = new Intent(getApplicationContext(), FileListNewMulti.class);
+                            startActivity(intent);
+
+
+                        }
+
+
+                        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                        drawer.closeDrawer(GravityCompat.START);
+                        return true;
+                    }
+                });
+            } else {
+
+
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_filelistnewmulti);
+
+                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                setSupportActionBar(toolbar);
+
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                drawer.addDrawerListener(toggle);
+                toggle.syncState();
+
+                NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        int id = menuItem.getItemId();
+
+                        if (id == R.id.earningsnav) {
+                            Intent intent = new Intent(getApplicationContext(), Earnings.class);
+                            startActivity(intent);
+
+
+                        } else if (id == R.id.uploadsnav) {
+
+                            Intent intent = new Intent(getApplicationContext(), FileListNewMulti.class);
+                            startActivity(intent);
+
+
+                        }
+
+
+                        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                        drawer.closeDrawer(GravityCompat.START);
+                        return true;
+                    }
+                });
+                simpleListView = (ListView) findViewById(R.id.simpleListView);
+                String[] from = {"name", "path"};//string array
+                int[] to = {R.id.textView, R.id.imageView};//int array of views id's
+                arrayList = getFolderList();
+                simpleAdapter = new SimpleAdapter(this, arrayList, R.layout.list_view_items, from, to);//Create object and set the parameters for simpleAdapter
+                simpleListView.setAdapter(simpleAdapter);//sets the adapter for listView
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
         }
 
-        boolean servicestate=isMyServiceRunning(UploadService.class);
+    }
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-        if(servicestate) {
-            Toast.makeText(FileListNewMulti.this, "File upload is in progress ",
-                    Toast.LENGTH_LONG).show();
-
-
-
-
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_filelistnewmulti);
-            simpleListView = (ListView) findViewById(R.id.simpleListView);
-            String[] from = {"name", "path"};//string array
-            int[] to = {R.id.textView, R.id.imageView};//int array of views id's
-            ArrayList<HashMap<String,String>> emptyarrayList = new ArrayList<>();
-            simpleAdapter = new SimpleAdapter(this, emptyarrayList, R.layout.list_view_items, from, to);//Create object and set the parameters for simpleAdapter
-            simpleListView.setAdapter(simpleAdapter);
-        }
-        else {
+        if (id == R.id.earningsnav) {
+            Intent intent = new Intent(getApplicationContext(), Earnings.class);
+            startActivity(intent);
 
 
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_filelistnewmulti);
-            simpleListView = (ListView) findViewById(R.id.simpleListView);
-            String[] from = {"name", "path"};//string array
-            int[] to = {R.id.textView, R.id.imageView};//int array of views id's
-            arrayList = getFolderList();
-            simpleAdapter = new SimpleAdapter(this, arrayList, R.layout.list_view_items, from, to);//Create object and set the parameters for simpleAdapter
-            simpleListView.setAdapter(simpleAdapter);//sets the adapter for listView
+        } else if (id == R.id.uploadsnav) {
+
+            Intent intent = new Intent(getApplicationContext(), FileListNewMulti.class);
+            startActivity(intent);
+
+
+
         }
 
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
