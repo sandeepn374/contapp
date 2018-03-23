@@ -59,7 +59,7 @@ import java.util.Random;
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity  {
     Button buttonPlayLastRecordAudio;
     Button buttonStopPlayingRecording;
     //Button uploadCurrent;
@@ -105,32 +105,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.earningsnav) {
-            Intent intent = new Intent(getApplicationContext(), Earnings.class);
-            startActivity(intent);
-
-
-        } else if (id == R.id.uploadsnav) {
-
-            Intent intent = new Intent(getApplicationContext(), FileListNewMulti.class);
-            startActivity(intent);
-
-
-
-        }
-
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,6 +142,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                     startActivity(intent);
 
 
+
+                }
+                else if(id==R.id.pricingpolicynav   ){
+                    Intent intent = new Intent(getApplicationContext(), pricingpolicy.class);
+                    startActivity(intent);
 
                 }
 
@@ -324,6 +303,12 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
                     public void onCompletion(MediaPlayer mp) {
+
+
+
+                        Intent intent = new Intent(getApplicationContext(), UploadService.class);
+
+                        startService(intent);
 
 
                         buttonPlayLastRecordAudio.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);

@@ -45,7 +45,7 @@ import okhttp3.Response;
 import android.content.BroadcastReceiver;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class FileListNewMulti extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class FileListNewMulti extends AppCompatActivity  {
 
 
 
@@ -157,6 +157,11 @@ public class FileListNewMulti extends AppCompatActivity implements NavigationVie
 
 
                         }
+                        else if(id==R.id.pricingpolicynav   ){
+                            Intent intent = new Intent(getApplicationContext(), pricingpolicy.class);
+                            startActivity(intent);
+
+                        }
 
 
                         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -164,6 +169,7 @@ public class FileListNewMulti extends AppCompatActivity implements NavigationVie
                         return true;
                     }
                 });
+                navigationView.bringToFront();
             } else {
 
 
@@ -198,6 +204,11 @@ public class FileListNewMulti extends AppCompatActivity implements NavigationVie
 
 
                         }
+                        else if(id==R.id.pricingpolicynav   ){
+                            Intent intent = new Intent(getApplicationContext(), pricingpolicy.class);
+                            startActivity(intent);
+
+                        }
 
 
                         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -205,6 +216,7 @@ public class FileListNewMulti extends AppCompatActivity implements NavigationVie
                         return true;
                     }
                 });
+                navigationView.bringToFront();
                 simpleListView = (ListView) findViewById(R.id.simpleListView);
                 String[] from = {"name", "path"};//string array
                 int[] to = {R.id.textView, R.id.imageView};//int array of views id's
@@ -218,32 +230,7 @@ public class FileListNewMulti extends AppCompatActivity implements NavigationVie
         }
 
     }
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
-        if (id == R.id.earningsnav) {
-            Intent intent = new Intent(getApplicationContext(), Earnings.class);
-            startActivity(intent);
-
-
-        } else if (id == R.id.uploadsnav) {
-
-            Intent intent = new Intent(getApplicationContext(), FileListNewMulti.class);
-            startActivity(intent);
-
-
-
-        }
-
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -355,5 +342,7 @@ public class FileListNewMulti extends AppCompatActivity implements NavigationVie
         i.putExtra("send","FileList");
         startActivity(i);
     }
+
+
 
 }

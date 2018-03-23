@@ -34,7 +34,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class Earnings extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Earnings extends AppCompatActivity  {
 
     TextView files,earnings,accept,reject,referalcode,referincometext;
     int totalAccepted,totalRejected,referalincome;
@@ -77,6 +77,11 @@ public class Earnings extends AppCompatActivity implements NavigationView.OnNavi
 
 
                 }
+                else if(id==R.id.pricingpolicynav   ){
+                    Intent intent = new Intent(getApplicationContext(), pricingpolicy.class);
+                    startActivity(intent);
+
+                }
 
 
 
@@ -95,31 +100,12 @@ public class Earnings extends AppCompatActivity implements NavigationView.OnNavi
         makePostRequestOnNewThread();
 
     }
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+    public void onBackPressed() {
+        Log.d("CDA", "onBackPressed Called");
+        Intent setIntent = new Intent(getApplicationContext(),MainActivity.class);
 
-        if (id == R.id.earningsnav) {
-            Intent intent = new Intent(getApplicationContext(), Earnings.class);
-            startActivity(intent);
-
-
-        } else if (id == R.id.uploadsnav) {
-
-            Intent intent = new Intent(getApplicationContext(), FileListNewMulti.class);
-            startActivity(intent);
-
-
-
-        }
-
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        startActivity(setIntent);
     }
 
     private void makePostRequestOnNewThread() {

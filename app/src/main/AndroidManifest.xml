@@ -56,8 +56,7 @@
         <activity
             android:name=".Earnings"
             android:label="@string/title_activity_earnings"
-            android:screenOrientation="portrait"
-          />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GoogleSignInActivity"
             android:screenOrientation="portrait">
@@ -74,7 +73,7 @@
         <activity
             android:name=".StartScreenActivity"
             android:screenOrientation="portrait">
-          <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -92,7 +91,7 @@
             -->
         </activity>
 
-        <service android:name=".UploadService"></service>
+        <service android:name=".UploadService" />
 
         <activity
             android:name=".FileListNewMulti"
@@ -117,6 +116,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.voiceitbase.audiorecorder.NotificationActivity" />
         </activity>
+        <activity
+            android:name=".pricingpolicy"
+            android:label="@string/title_activity_pricingpolicy"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
