@@ -93,7 +93,7 @@ public class FileListNewMulti extends AppCompatActivity  {
         }
     };
 
-    /*@Override
+    @Override
     protected void onResume() {
         super.onResume();
         registerReceiver(receiver, new IntentFilter(
@@ -103,7 +103,7 @@ public class FileListNewMulti extends AppCompatActivity  {
     protected void onPause() {
         super.onPause();
         unregisterReceiver(receiver);
-    }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -242,6 +242,17 @@ public class FileListNewMulti extends AppCompatActivity  {
         return false;
     }
 
+    public static long folderSize(File directory) {
+        long length = 0;
+        for (File file : directory.listFiles()) {
+            if (file.isFile())
+                length += file.length();
+            else
+                length += folderSize(file);
+        }
+        return length;
+    }
+
 
 
     public void setFilePath(int index) {
@@ -272,8 +283,19 @@ public class FileListNewMulti extends AppCompatActivity  {
         for (File inFile : files) {
             if (inFile.isDirectory()) {
 
+                // FileUtils.sizeOfDirectory(inFile);
+                long foldersize= folderSize(inFile);
                 File[] filesInside = inFile.listFiles();
-                if(filesInside.length==2) {
+
+                double kilobytes = (foldersize / 1024);
+                double megabytes = (kilobytes / 1024);
+
+
+
+                if(filesInside.length==2 && megabytes<3) {
+
+
+
 
                     HashMap<String, String> hashMap = new HashMap<>();//create a hashmap to store the data in key value pair
                     hashMap.put("name", "Name: " + inFile.getName());
