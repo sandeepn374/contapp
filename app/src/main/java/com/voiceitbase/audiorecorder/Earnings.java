@@ -121,7 +121,24 @@ public class Earnings extends AppCompatActivity  {
                     @Override
                     public void run() {
                         files.setText("Files = "+(totalAccepted+totalRejected));
-                        earnings.setText("Earnings = Rs "+totalAccepted*uploadprice);
+
+                        float earningstotal=0;
+
+                        if(totalAccepted<=500) {
+                            uploadprice = (float) 0.5;
+                           earningstotal= totalAccepted*uploadprice;
+                        }
+                        else if(totalAccepted>500 && totalAccepted<=1000) {
+                            uploadprice = (float) 0.25;
+                            earningstotal=250+(totalAccepted-500)*uploadprice;
+
+                        }
+                        else {
+                            uploadprice = (float) 0.10;
+                            earningstotal=375+(totalAccepted-1000)*uploadprice;
+                        }
+
+                        earnings.setText("Earnings = Rs "+earningstotal);
                         reject.setText("Total rejected files = "+totalRejected);
                         accept.setText("Total accepted files = "+totalAccepted);
                         float refericome= (float) (referalincome*referprice);

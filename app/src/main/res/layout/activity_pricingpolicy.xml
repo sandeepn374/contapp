@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="\u2022 Rs 0.5 for every file accepted \n\n \u2022 Rs 0.1 for every accepted file by the referral\n\n \u2022 Minimum slab for payment is Rs 50"
+                android:text="\u2022 Rs 0.5 for every file accepted until the count of 500  \n\n \u2022Rs 0.25 for every file accepted after the count of 500 \n\n\u2022 Rs 0.10 for every file accepted after count of 1000 \n\n  \u2022 Rs 0.1 for every accepted file by the referral\n\n \u2022 Minimum slab for payment is Rs 50"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:textSize="18sp"
