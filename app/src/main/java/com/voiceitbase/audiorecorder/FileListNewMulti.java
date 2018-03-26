@@ -17,6 +17,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -162,6 +163,11 @@ public class FileListNewMulti extends AppCompatActivity  {
                             startActivity(intent);
 
                         }
+                        else if(id==R.id.homenav   ){
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+
+                        }
 
 
                         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -209,6 +215,11 @@ public class FileListNewMulti extends AppCompatActivity  {
                             startActivity(intent);
 
                         }
+                        else if(id==R.id.homenav   ){
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+
+                        }
 
 
                         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -217,6 +228,14 @@ public class FileListNewMulti extends AppCompatActivity  {
                     }
                 });
                 navigationView.bringToFront();
+                navigationView.bringToFront();
+                View headerLayout = navigationView.getHeaderView(0);
+                TextView nameswipe=headerLayout.findViewById(R.id.nameswipe);
+                TextView earningsswipe=headerLayout.findViewById(R.id.earningsswipe);
+                nameswipe.setText(RegisterActivity.getDefaults("user",getApplicationContext()));
+                String earningString=RegisterActivity.getDefaults("totalincome",getApplicationContext());
+                if (earningString!=null)
+                    earningsswipe.setText("Rs "+earningString);
                 simpleListView = (ListView) findViewById(R.id.simpleListView);
                 String[] from = {"name", "path"};//string array
                 int[] to = {R.id.textView, R.id.imageView};//int array of views id's
@@ -230,6 +249,7 @@ public class FileListNewMulti extends AppCompatActivity  {
         }
 
     }
+
 
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {

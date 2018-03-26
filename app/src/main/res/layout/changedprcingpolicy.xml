@@ -1,18 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright 2014 Niek Haarman
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~ http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  -->
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <include
+        layout="@layout/app_bar_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="false"
+        app:headerLayout="@layout/nav_header_navigation"
+        app:menu="@menu/activity_navigation_drawer" />
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,7 +28,8 @@
     android:layout_height="match_parent"
     android:clipToPadding="false"
     android:fitsSystemWindows="true"
-    tools:ignore="UnusedAttribute">
+    tools:ignore="UnusedAttribute"
+    android:layout_marginTop="50dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,23 +52,139 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:scaleType="center"
-                android:src="@drawable/earnings" />
+                android:src="@drawable/darkblue" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/pink_transparent"
+                android:background="@color/blue_transparent"
                 android:padding="12dp">
+                <TableLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="\u2022 Rs 0.5 for every file accepted until the count of 500  \n\n \u2022 Rs 0.25 for every file accepted after the count of 500 "
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    android:id="@+id/earnings"/>
+
+                <TableRow
+                   >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Accepted File Count"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text=" Price"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        />
+                </TableRow>
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="0 - 500"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Rs 0.50 per file"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="500 - 1000"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Rs 0.25 per file"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+
+
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="1000 above"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Rs 0.10 per file"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+                </TableLayout>
 
             </FrameLayout>
         </FrameLayout>
@@ -75,23 +200,110 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:scaleType="center"
-                android:src="@drawable/earnings" />
+                android:src="@drawable/darkblue" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/pink_transparent"
+                android:background="@color/blue_transparent"
                 android:padding="12dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="\u2022 Rs 0.10 for every file accepted after count of 1000 \n\n  \u2022 Rs 0.1 for every accepted file by the referral\n\n"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                  />
+                <TableLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    >
+
+
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Referral Income Policy"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+
+                    </TableRow>
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Accepted File Count"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Price"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+
+
+
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="0 - 500"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Rs 0.10 per file"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+
+
+
+
+                </TableLayout>
+
 
             </FrameLayout>
         </FrameLayout>
@@ -107,20 +319,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:scaleType="center"
-                android:src="@drawable/earnings" />
+                android:src="@drawable/darkblue" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/pink_transparent"
+                android:background="@color/blue_transparent"
                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="sans-serif-condensed"
-                    android:text="\n\n \u2022 Minimum slab for payment is Rs 50\n\n \u2022 Maximum Referral income per referral is Rs 50"
+                    android:text="\u2022 Maximum referral income per referral is Rs 50\n\n\u2022 Minimum slab for payment is Rs 50\n\n"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
                     />
@@ -135,3 +346,4 @@
 
     </LinearLayout>
 </ScrollView>
+</android.support.v4.widget.DrawerLayout>

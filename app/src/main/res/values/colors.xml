@@ -18,8 +18,8 @@
 
 
 
-    <color name="colorPrimary">#4654b1</color>
-    <color name="colorPrimaryDark">#4654b1</color>
+    <color name="colorPrimary">#012F8F</color>
+    <color name="colorPrimaryDark">#012F8F</color>
     <color name="colorAccent">#000000</color>
     <color name="background">#ffffff</color>
     <color name="bg_login">#26ae90</color>

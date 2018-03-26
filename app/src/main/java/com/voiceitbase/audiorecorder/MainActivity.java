@@ -182,6 +182,11 @@ public class MainActivity extends AppCompatActivity implements ForceUpdateChecke
                     startActivity(intent);
 
                 }
+                else if(id==R.id.homenav   ){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+
+                }
 
 
 
@@ -191,6 +196,13 @@ public class MainActivity extends AppCompatActivity implements ForceUpdateChecke
             }
         });
             navigationView.bringToFront();
+            View headerLayout = navigationView.getHeaderView(0);
+            TextView nameswipe=headerLayout.findViewById(R.id.nameswipe);
+            TextView earningsswipe=headerLayout.findViewById(R.id.earningsswipe);
+            nameswipe.setText(RegisterActivity.getDefaults("user",getApplicationContext()));
+            String earningString=RegisterActivity.getDefaults("totalincome",getApplicationContext());
+            if (earningString!=null)
+                earningsswipe.setText("Rs "+earningString);
 
         indicator=(Indicator)findViewById(R.id.indicator);
 

@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,7 +35,7 @@ import java.net.URLEncoder;
 public class designchangeearnings extends AppCompatActivity {
 
 
-    TextView files,earnings,accept,reject,referincometext;
+    TextView earnings,accept,reject,referincometext,totalearnings;
     int totalAccepted,totalRejected,referalincome;
     float referprice ,uploadprice;
 
@@ -42,13 +43,78 @@ public class designchangeearnings extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
 
-        setContentView(R.layout.activity_designchangeearnings);
+            setContentView(R.layout.activity_designchangeearnings);
+        }
+        catch (Exception e){
+            System.out.print(e);
+        }
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int id = menuItem.getItemId();
+
+                if (id == R.id.earningsnav) {
+                    Intent intent = new Intent(getApplicationContext(), designchangeearnings.class);
+                    startActivity(intent);
+
+
+                } else if (id == R.id.uploadsnav) {
+
+                    Intent intent = new Intent(getApplicationContext(), FileListNewMulti.class);
+                    startActivity(intent);
+
+
+
+                }
+                else if(id==R.id.pricingpolicynav   ){
+                    Intent intent = new Intent(getApplicationContext(), pricingpolicy.class);
+                    startActivity(intent);
+
+                }
+
+                else if(id==R.id.homenav   ){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+
+                }
+
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+        navigationView.bringToFront();
+        navigationView.bringToFront();
+        View headerLayout = navigationView.getHeaderView(0);
+        TextView nameswipe=headerLayout.findViewById(R.id.nameswipe);
+        TextView earningsswipe=headerLayout.findViewById(R.id.earningsswipe);
+        nameswipe.setText(RegisterActivity.getDefaults("user",getApplicationContext()));
+        String earningString=RegisterActivity.getDefaults("totalincome",getApplicationContext());
+        if (earningString!=null)
+            earningsswipe.setText("Rs "+earningString);
 
         earnings=(TextView)findViewById(R.id.earnings);
-        files=(TextView)findViewById(R.id.files);
+       // files=(TextView)findViewById(R.id.files);
         accept=(TextView)findViewById(R.id.acceptance);
         reject=(TextView)findViewById(R.id.rejected);
+        totalearnings=(TextView)findViewById(R.id.totalearnings);
 
         referincometext=(TextView)findViewById(R.id.referalicome);
         makePostRequestOnNewThread();
@@ -57,6 +123,7 @@ public class designchangeearnings extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -78,7 +145,7 @@ public class designchangeearnings extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        files.setText("Files = "+(totalAccepted+totalRejected));
+                       // files.setText("Files = "+(totalAccepted+totalRejected));
 
                         float earningstotal=0;
 
@@ -96,12 +163,15 @@ public class designchangeearnings extends AppCompatActivity {
                             earningstotal=375+(totalAccepted-1000)*uploadprice;
                         }
 
-                        earnings.setText("Earnings = Rs "+earningstotal);
-                        reject.setText("Total rejected files = "+totalRejected);
-                        accept.setText("Total accepted files = "+totalAccepted);
+                        earnings.setText(""+earningstotal);
+                        reject.setText(""+totalRejected);
+                        accept.setText(""+totalAccepted);
                         float refericome= (float) (referalincome*referprice);
                         refericome=round(refericome,2);
-                        referincometext.setText("Referal Income Rs "+refericome);
+                        referincometext.setText(""+refericome);
+                        float totalincome=earningstotal+refericome;
+                        totalearnings.setText(""+totalincome);
+                        RegisterActivity.setDefaults("totalincome",""+totalincome,getApplicationContext());
 
 
                     }

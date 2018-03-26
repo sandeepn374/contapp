@@ -121,7 +121,8 @@
             android:name=".pricingpolicy"
             android:label="@string/title_activity_pricingpolicy"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".designchangeearnings"></activity>
+        <activity android:name=".designchangeearnings"
+            android:label="Earnings"></activity>
     </application>
 
 </manifest>

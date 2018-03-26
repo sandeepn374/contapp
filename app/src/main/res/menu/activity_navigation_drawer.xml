@@ -17,6 +17,10 @@
             android:id="@+id/uploadsnav"
 
             android:title="Upload" />
+        <item
+            android:id="@+id/homenav"
+
+            android:title="Home" />
 
 
     </group>
