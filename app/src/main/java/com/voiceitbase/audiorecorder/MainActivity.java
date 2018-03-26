@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements ForceUpdateChecke
                 int id = menuItem.getItemId();
 
                 if (id == R.id.earningsnav) {
-                    Intent intent = new Intent(getApplicationContext(), Earnings.class);
+                    Intent intent = new Intent(getApplicationContext(), designchangeearnings.class);
                     startActivity(intent);
 
 
