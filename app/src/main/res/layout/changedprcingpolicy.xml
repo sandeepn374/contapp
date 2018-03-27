@@ -42,22 +42,23 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:foreground="?android:attr/selectableItemBackground"
             >
 
-            <ImageView
+            <!--<ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:scaleType="center"
                 android:src="@drawable/darkblue" />
+                -->
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/blue_transparent"
+                android:background="@color/holo_red_light_transparent"
                 android:padding="12dp">
                 <TableLayout
                     android:layout_height="match_parent"
@@ -72,8 +73,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Accepted File Count"
-                        android:textColor="@android:color/white"
+                        android:text="Accepted Files"
+                        android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:layout_weight="1"
                         />
@@ -83,7 +84,7 @@
                         android:layout_gravity="bottom"
                         android:fontFamily="sans-serif-condensed"
                         android:text=" Price"
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:textSize="20sp"
                         android:layout_weight="1"
                         />
@@ -96,7 +97,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
 
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -106,7 +107,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
 
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -120,7 +121,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="0 - 500"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -130,7 +131,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="Rs 0.50 per file"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -144,7 +145,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="500 - 1000"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -154,7 +155,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="Rs 0.25 per file"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -169,7 +170,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="1000 above"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -179,40 +180,32 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="Rs 0.10 per file"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
                     </TableRow>
-                </TableLayout>
-
-            </FrameLayout>
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="4dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:scaleType="center"
-                android:src="@drawable/darkblue" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/blue_transparent"
-                android:padding="12dp">
-
-                <TableLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    >
-
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
 
                     <TableRow
                         >
@@ -221,8 +214,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="Referral Income Policy"
-                            android:textColor="@android:color/white"
+                            android:text="Referral Policy"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -235,7 +228,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -244,7 +237,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -256,8 +249,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="Accepted File Count"
-                            android:textColor="@android:color/white"
+                            android:text="Accepted Files"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -267,7 +260,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="Price"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -283,7 +276,7 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="0 - 500"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -293,7 +286,29 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
                             android:text="Rs 0.10 per file"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+
+                    <TableRow
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -305,8 +320,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
-                            android:text=""
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -315,8 +329,55 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="-Max of Rs 50 per referral"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+                    <TableRow
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Maximum of Rs 50"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Per referral"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                    </TableRow>
+                    <TableRow
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Minimum slab for "
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp"
+                            android:layout_weight="1"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Payment is Rs 50"
+                            android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:layout_weight="1"
                             />
@@ -324,48 +385,14 @@
 
 
 
-
                 </TableLayout>
 
-
-            </FrameLayout>
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="4dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:scaleType="center"
-                android:src="@drawable/darkblue" />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/blue_transparent"
-               >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="\u2022 Maximum referral income per referral is Rs 50\n\n\u2022 Minimum slab for payment is Rs 50\n\n"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    />
-
             </FrameLayout>
         </FrameLayout>
 
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp" />
+
+
 
     </LinearLayout>
 </ScrollView>

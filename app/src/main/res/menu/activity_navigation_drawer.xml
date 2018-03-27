@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/homenav"
+
+            android:title="Home" />
+        <item
             android:id="@+id/pricingpolicynav"
 
             android:title="Pricing Policy" />
@@ -17,10 +21,7 @@
             android:id="@+id/uploadsnav"
 
             android:title="Upload" />
-        <item
-            android:id="@+id/homenav"
 
-            android:title="Home" />
 
 
     </group>

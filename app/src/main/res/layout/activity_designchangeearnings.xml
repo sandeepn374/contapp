@@ -42,22 +42,22 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 >
 
-                <ImageView
+               <!-- <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center_horizontal"
                     android:scaleType="center"
-                    android:src="@drawable/darkblue" />
+                    android:src="@drawable/darkblue" />-->
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/blue_transparent"
+                    android:background="@color/holo_red_light_transparent"
                     android:padding="12dp">
                     <TableLayout
                         android:layout_height="match_parent"
@@ -72,8 +72,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
-                                android:text="Earnings Type"
-                                android:textColor="@android:color/white"
+                                android:text="Earnings"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -83,7 +83,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="Amount"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -96,7 +96,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
 
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -106,7 +106,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
 
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -120,7 +120,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="Your Earnings"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -130,7 +130,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
 
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 android:id="@+id/earnings"
@@ -145,7 +145,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="Referral Earnings"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -155,7 +155,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:id="@+id/referalicome"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -170,7 +170,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="Total Earnings"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -180,39 +180,11 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                android:id="@+id/totalearnings"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
                         </TableRow>
-                    </TableLayout>
-
-                </FrameLayout>
-            </FrameLayout>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="4dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:scaleType="center"
-                    android:src="@drawable/darkblue" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/blue_transparent"
-                    android:padding="12dp">
-
-                    <TableLayout
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        >
                         <TableRow
                             >
                             <TextView
@@ -220,8 +192,50 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
-                                android:text="File type"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:layout_weight="1"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:layout_weight="1"
+                                />
+                        </TableRow>
+                        <TableRow
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:layout_weight="1"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:layout_weight="1"
+                                />
+                        </TableRow>
+                        <TableRow
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Files"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -231,7 +245,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="Count"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -244,7 +258,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -253,7 +267,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -270,7 +284,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="Accepted"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -279,8 +293,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
-                               android:id="@+id/acceptance"
-                                android:textColor="@android:color/white"
+                                android:id="@+id/acceptance"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -294,7 +308,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="Rejected"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -304,45 +318,53 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:id="@+id/rejected"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
                         </TableRow>
-
-
-
-
-                    </TableLayout>
-
-
-                </FrameLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="4dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:scaleType="center"
-                    android:src="@drawable/darkblue" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/blue_transparent"
-                    android:padding="12dp">
-
-                    <TableLayout
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        >
+                        <TableRow
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:layout_weight="1"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:layout_weight="1"
+                                />
+                        </TableRow>
+                        <TableRow
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:layout_weight="1"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:layout_weight="1"
+                                />
+                        </TableRow>
                         <TableRow
                             >
                             <TextView
@@ -351,7 +373,7 @@
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
                                 android:text="Gifts Won"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
@@ -360,27 +382,19 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
                                 android:fontFamily="sans-serif-condensed"
-                                android:text="0"
-                                android:textColor="@android:color/white"
+                                android:text="nil"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
                                 android:layout_weight="1"
                                 />
                         </TableRow>
-
-
-
-
                     </TableLayout>
-
 
                 </FrameLayout>
             </FrameLayout>
 
 
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp" />
 
         </LinearLayout>
     </ScrollView>
