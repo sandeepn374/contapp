@@ -370,7 +370,7 @@ public class FileList extends AppCompatActivity  {
         RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
                 .addFormDataPart("audio_file", image.getName(), RequestBody.create(MEDIA_TYPE_PNG, image))
                 .addFormDataPart("user",user)
-                .addFormDataPart("textfromphone","aakash")
+                .addFormDataPart("textfromphone",stringfromPhone)
                 .addFormDataPart("uuid",uuid)
                 .addFormDataPart("phone",phone)
                 .addFormDataPart("referedby",referedby)
@@ -381,7 +381,7 @@ public class FileList extends AppCompatActivity  {
                 .addFormDataPart("district","bangalore")
                 .build();
 
-        Request request = new Request.Builder().url("http://35.196.205.226/api/upload")
+        Request request = new Request.Builder().url("http://35.196.205.226:9001/api/upload")
                 .post(requestBody).build();
 
         Response response = client.newCall(request).execute();
